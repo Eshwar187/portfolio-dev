@@ -17,7 +17,7 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Have a project in mind or want to discuss a collaboration? I'd love to hear from you. Fill out the form below or reach out through my social media channels.
+          Have a project in mind or want to discuss a collaboration? I&apos;d love to hear from you. Fill out the form below or reach out through my social media channels.
         </motion.p>
 
         {/* Contact Form with 3D Element */}

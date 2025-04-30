@@ -1,15 +1,15 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Stars, Text3D, Float, PerspectiveCamera, useTexture } from '@react-three/drei';
+import { Stars, Text3D, Float, PerspectiveCamera } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
 import { MotionConfig } from 'framer-motion';
 import * as THREE from 'three';
 
 const FloatingName = () => {
   const textRef = useRef();
-  
+
   useFrame(({ clock }) => {
     if (textRef.current) {
       textRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.5) * 0.2;
@@ -36,7 +36,7 @@ const FloatingName = () => {
         position={[-2.5, 0, 0]}
       >
         J.ESHWAR
-        <meshStandardMaterial 
+        <meshStandardMaterial
           color="#8a2be2"
           emissive="#ff00ff"
           emissiveIntensity={0.5}
@@ -50,7 +50,7 @@ const FloatingName = () => {
 
 const FloatingTitle = () => {
   const textRef = useRef();
-  
+
   useFrame(({ clock }) => {
     if (textRef.current) {
       textRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.5 + 1) * 0.2;
@@ -72,7 +72,7 @@ const FloatingTitle = () => {
         position={[-2, -1, 0]}
       >
         FULL-STACK DEVELOPER
-        <meshStandardMaterial 
+        <meshStandardMaterial
           color="#ffffff"
           emissive="#ff00ff"
           emissiveIntensity={0.2}
@@ -84,7 +84,7 @@ const FloatingTitle = () => {
 
 const AnimatedSphere = () => {
   const sphereRef = useRef();
-  
+
   useFrame(({ clock }) => {
     if (sphereRef.current) {
       sphereRef.current.rotation.y = clock.getElapsedTime() * 0.2;
@@ -107,9 +107,9 @@ const AnimatedSphere = () => {
       }}
     >
       <sphereGeometry args={[1, 64, 64]} />
-      <meshStandardMaterial 
-        color="#8a2be2" 
-        wireframe 
+      <meshStandardMaterial
+        color="#8a2be2"
+        wireframe
         emissive="#ff00ff"
         emissiveIntensity={0.5}
       />
@@ -119,7 +119,7 @@ const AnimatedSphere = () => {
 
 const OrbitingParticles = () => {
   const groupRef = useRef();
-  
+
   useFrame(({ clock }) => {
     if (groupRef.current) {
       groupRef.current.rotation.y = clock.getElapsedTime() * 0.1;
@@ -132,7 +132,7 @@ const OrbitingParticles = () => {
         const radius = 3 + Math.random() * 2;
         const angle = Math.random() * Math.PI * 2;
         const y = (Math.random() - 0.5) * 4;
-        
+
         return (
           <motion.mesh
             key={i}
@@ -152,7 +152,7 @@ const OrbitingParticles = () => {
             }}
           >
             <sphereGeometry args={[0.05, 16, 16]} />
-            <meshStandardMaterial 
+            <meshStandardMaterial
               color={new THREE.Color(
                 0.5 + Math.random() * 0.5,
                 0.2,
@@ -182,19 +182,19 @@ const HeroScene = () => {
           <ambientLight intensity={0.2} />
           <pointLight position={[10, 10, 10]} intensity={1} />
           <spotLight position={[-10, -10, -10]} intensity={0.5} />
-          
+
           <FloatingName />
           <FloatingTitle />
           <AnimatedSphere />
           <OrbitingParticles />
-          
-          <Stars 
-            radius={100} 
-            depth={50} 
-            count={5000} 
-            factor={4} 
-            saturation={0} 
-            fade 
+
+          <Stars
+            radius={100}
+            depth={50}
+            count={5000}
+            factor={4}
+            saturation={0}
+            fade
             speed={1}
           />
         </Canvas>

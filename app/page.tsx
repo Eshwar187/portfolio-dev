@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import ClientParticles from '../components/ClientParticles';
 import ClientCtaParticles from '../components/ClientCtaParticles';
 import EnhancedHeading from '../components/EnhancedHeading';
@@ -133,7 +133,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              I'm a passionate Full-Stack Developer specializing in the MERN stack, Next.js, and PostgreSQL.
+              I&apos;m a passionate Full-Stack Developer specializing in the MERN stack, Next.js, and PostgreSQL.
               With a strong foundation in both frontend and backend technologies, I create immersive digital experiences.
             </motion.p>
             <motion.p
@@ -143,7 +143,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 1.1 }}
             >
               On the backend, I excel in Node.js, Express, MongoDB, and RESTful API development.
-              I'm proficient in database design, server-side authentication, and deploying scalable applications.
+              I&apos;m proficient in database design, server-side authentication, and deploying scalable applications.
             </motion.p>
           </motion.div>
 
@@ -206,7 +206,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.8 }}
             >
-              When I'm not coding, you'll find me participating in hackathons, contributing to open-source projects,
+              When I&apos;m not coding, you&apos;ll find me participating in hackathons, contributing to open-source projects,
               or exploring new technologies to expand my skill set.
             </motion.p>
           </motion.div>
@@ -446,7 +446,7 @@ export default function Home() {
             <motion.h2
               className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
             >
-              Let's Work Together
+              Let&apos;s Work Together
             </motion.h2>
 
             <motion.p
@@ -456,7 +456,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              I'm currently available for freelance work. If you have a project that needs some creative touch, I'd love to hear about it.
+              I&apos;m currently available for freelance work. If you have a project that needs some creative touch, I&apos;d love to hear about it.
             </motion.p>
 
             <Link href="/contact">

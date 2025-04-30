@@ -28,7 +28,7 @@ const AnimeText = ({
     containerRef.current.innerHTML = '';
 
     // Create a span for each character
-    characters.forEach((char, index) => {
+    characters.forEach((char) => {
       const span = document.createElement('span');
       span.innerText = char === ' ' ? '\u00A0' : char; // Use non-breaking space for spaces
       span.style.display = 'inline-block';

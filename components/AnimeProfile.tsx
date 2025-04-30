@@ -91,8 +91,8 @@ const AnimeProfile = ({ isVisible, delay = 0 }: AnimeProfileProps) => {
 
     anime({
       targets: ringsContainer.children,
-      rotate: (el, i) => [0, 360],
-      duration: (el, i) => 10000 + i * 5000,
+      rotate: () => [0, 360],
+      duration: (_el, i) => 10000 + i * 5000,
       loop: true,
       easing: 'linear'
     });

@@ -6,22 +6,22 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 // Import the blog posts data
-import { blogPosts } from '../page';
+import { blogPosts } from '@/data/blogPosts';
 
 export default function BlogPost() {
   const params = useParams();
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<typeof blogPosts[0] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Find the blog post with the matching ID
     const id = params.id;
     const foundPost = blogPosts.find(p => p.id.toString() === id);
-    
+
     if (foundPost) {
       setPost(foundPost);
     }
-    
+
     setLoading(false);
   }, [params.id]);
 
@@ -41,7 +41,7 @@ export default function BlogPost() {
     return (
       <div className="min-h-screen container mx-auto px-4 py-16 md:py-24 text-center">
         <h1 className="text-4xl font-bold mb-6">Blog Post Not Found</h1>
-        <p className="text-xl text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
+        <p className="text-xl text-gray-300 mb-8">The blog post you&apos;re looking for doesn&apos;t exist.</p>
         <Link href="/blog">
           <motion.button
             className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full text-white font-medium"
@@ -64,16 +64,16 @@ export default function BlogPost() {
             className="mb-8 flex items-center text-purple-300 hover:text-white transition-colors"
             whileHover={{ x: -5 }}
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="mr-2"
             >
               <path d="M19 12H5"></path>
@@ -111,7 +111,7 @@ export default function BlogPost() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div 
+          <div
             className="prose prose-invert prose-purple max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
@@ -130,36 +130,36 @@ export default function BlogPost() {
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(138, 43, 226, 0.2)' }}
               whileTap={{ scale: 0.95 }}
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="18" 
-                height="18" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
               Share
             </motion.button>
-            
+
             <motion.button
               className="flex items-center gap-2 px-4 py-2 bg-transparent border border-purple-500 rounded-full text-white"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(138, 43, 226, 0.2)' }}
               whileTap={{ scale: 0.95 }}
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="18" 
-                height="18" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>

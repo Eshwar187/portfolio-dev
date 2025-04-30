@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Timeline from '../../components/Timeline';
 import gsap from 'gsap';
@@ -276,7 +276,7 @@ export default function About() {
               animate={{ x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Hello, I'm <motion.span
+              Hello, I&apos;m <motion.span
                 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
                 animate={{
                   scale: [1, 1.1, 1],
@@ -320,7 +320,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                On the backend, I'm proficient with <motion.span
+                On the backend, I&apos;m proficient with <motion.span
                   className="relative inline-block font-semibold text-green-400"
                   whileHover={{ scale: 1.1 }}
                 >Node.js <motion.span
@@ -418,7 +418,7 @@ export default function About() {
               animate={{ x: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
             >
-              I aspire to work on projects that push the boundaries of technology and leave a lasting impact. Whether it's building creative web applications, designing intuitive interfaces, or exploring AI-powered solutions, I am always ready to take on new opportunities that help me grow and make a difference.
+              I aspire to work on projects that push the boundaries of technology and leave a lasting impact. Whether it&apos;s building creative web applications, designing intuitive interfaces, or exploring AI-powered solutions, I am always ready to take on new opportunities that help me grow and make a difference.
             </motion.div>
           </motion.div>
 
@@ -433,7 +433,7 @@ export default function About() {
               animate={{ y: 0 }}
               transition={{ duration: 0.5, delay: 1.4 }}
             >
-              Let's <motion.span
+              Let&apos;s <motion.span
                 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 relative"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]

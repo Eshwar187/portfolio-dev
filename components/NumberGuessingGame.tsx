@@ -652,8 +652,8 @@ const NumberGuessingGame = () => {
         <p className="mb-2">How to play:</p>
         <ul className="list-disc list-inside space-y-1 pl-2">
           <li>Guess the number within {maxAttempts} attempts</li>
-          <li>After each guess, you'll get a hint if your guess is too high or too low</li>
-          <li>Use the hint button if you're stuck (one hint per game)</li>
+          <li>After each guess, you&apos;ll get a hint if your guess is too high or too low</li>
+          <li>Use the hint button if you&apos;re stuck (one hint per game)</li>
           <li>Change difficulty to adjust the number range</li>
         </ul>
       </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+
 
 interface Tile {
   id: number;
@@ -18,12 +18,12 @@ const PuzzleGame = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [difficulty, setDifficulty] = useState<3 | 4 | 5>(3); // 3x3, 4x4, or 5x5 grid
   const [emptyTileIndex, setEmptyTileIndex] = useState(difficulty * difficulty - 1);
-  
+
   // Initialize the puzzle
   const initializePuzzle = () => {
     const newTiles: Tile[] = [];
     const totalTiles = difficulty * difficulty;
-    
+
     // Create tiles in solved position
     for (let i = 0; i < totalTiles - 1; i++) {
       newTiles.push({
@@ -32,21 +32,21 @@ const PuzzleGame = () => {
         currentPosition: i
       });
     }
-    
+
     // Shuffle the tiles
     for (let i = newTiles.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [newTiles[i].currentPosition, newTiles[j].currentPosition] = 
+      [newTiles[i].currentPosition, newTiles[j].currentPosition] =
       [newTiles[j].currentPosition, newTiles[i].currentPosition];
     }
-    
+
     // Make sure the puzzle is solvable
     if (!isSolvable(newTiles)) {
       // Swap the first two tiles to make it solvable
-      [newTiles[0].currentPosition, newTiles[1].currentPosition] = 
+      [newTiles[0].currentPosition, newTiles[1].currentPosition] =
       [newTiles[1].currentPosition, newTiles[0].currentPosition];
     }
-    
+
     setTiles(newTiles);
     setEmptyTileIndex(totalTiles - 1);
     setIsComplete(false);
@@ -54,12 +54,12 @@ const PuzzleGame = () => {
     setTime(0);
     setIsPlaying(true);
   };
-  
+
   // Check if the puzzle is solvable
   const isSolvable = (tiles: Tile[]): boolean => {
     let inversions = 0;
     const positions = tiles.map(tile => tile.currentPosition);
-    
+
     for (let i = 0; i < positions.length; i++) {
       for (let j = i + 1; j < positions.length; j++) {
         if (positions[i] > positions[j]) {
@@ -67,11 +67,11 @@ const PuzzleGame = () => {
         }
       }
     }
-    
+
     // For odd-sized grids, the puzzle is solvable if the number of inversions is even
     if (difficulty % 2 === 1) {
       return inversions % 2 === 0;
-    } 
+    }
     // For even-sized grids, the puzzle is solvable if:
     // (blank row from bottom + inversions) is odd
     else {
@@ -80,7 +80,7 @@ const PuzzleGame = () => {
       return (rowFromBottom + inversions) % 2 === 1;
     }
   };
-  
+
   // Check if the puzzle is complete
   const checkCompletion = () => {
     const isComplete = tiles.every(tile => tile.currentPosition === tile.correctPosition);
@@ -89,24 +89,24 @@ const PuzzleGame = () => {
       setIsPlaying(false);
     }
   };
-  
+
   // Move a tile
   const moveTile = (tileIndex: number) => {
     if (!isPlaying || isComplete) return;
-    
+
     const tilePosition = tiles[tileIndex].currentPosition;
     const emptyPosition = emptyTileIndex;
-    
+
     // Check if the tile is adjacent to the empty space
     const tileRow = Math.floor(tilePosition / difficulty);
     const tileCol = tilePosition % difficulty;
     const emptyRow = Math.floor(emptyPosition / difficulty);
     const emptyCol = emptyPosition % difficulty;
-    
-    const isAdjacent = 
-      (tileRow === emptyRow && Math.abs(tileCol - emptyCol) === 1) || 
+
+    const isAdjacent =
+      (tileRow === emptyRow && Math.abs(tileCol - emptyCol) === 1) ||
       (tileCol === emptyCol && Math.abs(tileRow - emptyRow) === 1);
-    
+
     if (isAdjacent) {
       // Swap the tile with the empty space
       const newTiles = [...tiles];
@@ -114,34 +114,34 @@ const PuzzleGame = () => {
       setTiles(newTiles);
       setEmptyTileIndex(tilePosition);
       setMoves(moves + 1);
-      
+
       // Check if the puzzle is complete
       setTimeout(checkCompletion, 300);
     }
   };
-  
+
   // Timer effect
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    
+
     if (isPlaying && !isComplete) {
       interval = setInterval(() => {
         setTime(prevTime => prevTime + 1);
       }, 1000);
     }
-    
+
     return () => {
       if (interval) clearInterval(interval);
     };
   }, [isPlaying, isComplete]);
-  
+
   // Format time as MM:SS
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
-  
+
   // Get the position for a tile
   const getTilePosition = (position: number) => {
     const row = Math.floor(position / difficulty);
@@ -151,7 +151,7 @@ const PuzzleGame = () => {
       y: row * (100 / difficulty),
     };
   };
-  
+
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="mb-6 flex justify-between items-center">
@@ -184,16 +184,16 @@ const PuzzleGame = () => {
           New Game
         </motion.button>
       </div>
-      
+
       <div className="mb-4 flex justify-between">
         <div className="text-lg">Moves: {moves}</div>
         <div className="text-lg">Time: {formatTime(time)}</div>
       </div>
-      
-      <div 
+
+      <div
         className="relative bg-black/30 backdrop-blur-sm border border-purple-500/30 rounded-lg overflow-hidden"
-        style={{ 
-          width: '100%', 
+        style={{
+          width: '100%',
           paddingBottom: '100%' // Make it square
         }}
       >
@@ -225,11 +225,11 @@ const PuzzleGame = () => {
           })
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <p>Click "New Game" to start</p>
+            <p>Click &quot;New Game&quot; to start</p>
           </div>
         )}
       </div>
-      
+
       {isComplete && (
         <motion.div
           className="mt-6 p-4 bg-green-900/30 border border-green-500/50 rounded-lg text-center"
@@ -240,11 +240,11 @@ const PuzzleGame = () => {
           <p>You solved it in {moves} moves and {formatTime(time)}.</p>
         </motion.div>
       )}
-      
+
       <div className="mt-6">
         <h3 className="text-lg font-semibold mb-2">How to Play:</h3>
         <ul className="list-disc list-inside text-gray-300 space-y-1">
-          <li>Click "New Game" to start a new puzzle</li>
+          <li>Click &quot;New Game&quot; to start a new puzzle</li>
           <li>Click on tiles adjacent to the empty space to move them</li>
           <li>Arrange the tiles in numerical order to solve the puzzle</li>
           <li>Challenge yourself with different difficulty levels</li>

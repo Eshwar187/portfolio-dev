@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, OrbitControls } from '@react-three/drei';
 import emailjs from '@emailjs/browser';
-import EnhancedHeading from './EnhancedHeading';
+
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -262,7 +262,7 @@ const ContactForm = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <p className="text-green-400">
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </p>
               </div>
             </motion.div>
