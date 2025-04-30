@@ -28,20 +28,20 @@ export default function Home() {
     // Phase 3: Complete and fade to main page
 
     const timer1 = setTimeout(() => {
-      setLoadingPhase(1); // Start zooming to photo after 2 seconds
-    }, 2000);
+      setLoadingPhase(1); // Start zooming to photo after 1 second
+    }, 1000);
 
     const timer2 = setTimeout(() => {
-      setLoadingPhase(2); // Start photo flip after 3.5 seconds
-    }, 3500);
+      setLoadingPhase(2); // Start photo flip after 2 seconds
+    }, 2000);
 
     const timer3 = setTimeout(() => {
-      setLoadingPhase(3); // Complete loading after 5 seconds
-    }, 5000);
+      setLoadingPhase(3); // Complete loading after 3 seconds
+    }, 3000);
 
     const timer4 = setTimeout(() => {
-      setIsLoading(false); // Hide loading overlay after 6 seconds
-    }, 6000);
+      setIsLoading(false); // Hide loading overlay after 3.5 seconds
+    }, 3500);
 
     return () => {
       clearTimeout(timer1);
@@ -136,6 +136,15 @@ export default function Home() {
               I'm a passionate Full-Stack Developer specializing in the MERN stack, Next.js, and PostgreSQL.
               With a strong foundation in both frontend and backend technologies, I create immersive digital experiences.
             </motion.p>
+            <motion.p
+              className="text-lg text-gray-300 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
+            >
+              On the backend, I excel in Node.js, Express, MongoDB, and RESTful API development.
+              I'm proficient in database design, server-side authentication, and deploying scalable applications.
+            </motion.p>
           </motion.div>
 
           {/* Profile Image with Anime.js */}
@@ -182,10 +191,20 @@ export default function Home() {
               This passion led me to explore various technologies and frameworks, ultimately specializing in React and its ecosystem.
             </motion.p>
             <motion.p
-              className="text-lg text-gray-300"
+              className="text-lg text-gray-300 mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.6 }}
+            >
+              As I evolved as a developer, I became equally passionate about backend development. I enjoy building
+              robust server architectures, designing efficient databases, and implementing secure authentication systems.
+              My experience with Node.js and Express allows me to create performant APIs that power my frontend applications.
+            </motion.p>
+            <motion.p
+              className="text-lg text-gray-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.8 }}
             >
               When I'm not coding, you'll find me participating in hackathons, contributing to open-source projects,
               or exploring new technologies to expand my skill set.
@@ -197,7 +216,7 @@ export default function Home() {
             className="flex flex-wrap gap-6 justify-center"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 2.0 }}
           >
             <Link href="/projects">
               <motion.button
@@ -269,10 +288,10 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {[
-            { name: 'React', icon: '⚛️', level: 90 },
-            { name: 'Next.js', icon: '▲', level: 85 },
-            { name: 'Node.js', icon: '🟢', level: 80 },
-            { name: 'TypeScript', icon: '📘', level: 85 }
+            { name: 'React', icon: '⚛️', level: 100 },
+            { name: 'Next.js', icon: '▲', level: 100 },
+            { name: 'Node.js', icon: '🟢', level: 100 },
+            { name: 'TypeScript', icon: '📘', level: 100 }
           ].map((skill, index) => (
             <AnimeSkillCard
               key={skill.name}
@@ -316,27 +335,27 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {[
             {
-              title: 'E-Commerce Platform',
-              description: 'A full-stack e-commerce platform with payment integration, user authentication, and admin dashboard.',
-              image: '/projects/ecommerce.jpg',
-              tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-              link: '/projects/ecommerce',
+              title: 'Employee Management System',
+              description: 'A comprehensive Employee Management System built with React.js and Tailwind CSS. Features include login system, Admin Dashboard for employee management, and Employee Dashboard for profile handling.',
+              image: '/ems.jpg',
+              tags: ['React.js', 'Tailwind CSS', 'User Interface Design', 'Local Storage'],
+              link: '/projects',
               index: 0
             },
             {
-              title: 'Social Media App',
-              description: 'A social networking application with real-time chat, post sharing, and user profiles.',
-              image: '/projects/social.jpg',
-              tags: ['Next.js', 'Socket.io', 'PostgreSQL', 'AWS'],
-              link: '/projects/social-media',
+              title: 'ConstructHub.ai',
+              description: 'An innovative platform that uses AI to generate floor plans and painting suggestions for construction and interior design projects. Helps users visualize and plan their spaces efficiently.',
+              image: '/constructhub.jpg',
+              tags: ['React.js', 'AI Integration', 'Node.js', 'Express'],
+              link: '/projects',
               index: 1
             },
             {
-              title: 'AI Content Generator',
-              description: 'An AI-powered application that generates content based on user prompts using OpenAI API.',
-              image: '/projects/ai.jpg',
-              tags: ['React', 'OpenAI', 'TailwindCSS', 'Firebase'],
-              link: '/projects/ai-generator',
+              title: 'Buildwise.ai',
+              description: 'An advanced construction planning platform that finds local designers and provides AI material suggestions. Similar to ConstructHub.ai but with enhanced features for connecting with professionals.',
+              image: '/buildwise.jpg',
+              tags: ['React.js', 'AI Integration', 'MongoDB', 'Express'],
+              link: '/projects',
               index: 2
             }
           ].map((project) => (
@@ -374,9 +393,9 @@ export default function Home() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
           {[
-            { title: 'Web Development', value: '4+ Years' },
-            { title: 'Projects Completed', value: '25+' },
-            { title: 'Hackathons Won', value: '5+' },
+            { title: 'Web Development', value: '1+ Years' },
+            { title: 'Projects Completed', value: '15+' },
+            { title: 'Hackathons Won/Participated', value: '8+' },
             { title: 'Satisfied Clients', value: '15+' },
           ].map((stat, index) => (
             <motion.div

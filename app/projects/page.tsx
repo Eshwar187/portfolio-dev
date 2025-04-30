@@ -6,58 +6,64 @@ import EnhancedHeading from '../../components/EnhancedHeading';
 
 // Project data
 const projects = [
+  // Completed Projects
   {
     id: 1,
-    title: 'Beach Buddy',
-    description: 'A comprehensive web application that helps users find and connect with beach activities, services, and communities. Features include real-time weather updates, beach ratings, and social networking.',
-    image: '/beach-buddy.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Socket.io'],
-    githubLink: 'https://github.com/username/beach-buddy',
-    demoLink: 'https://beach-buddy-demo.vercel.app',
+    title: 'Employee Management System',
+    description: 'A comprehensive Employee Management System built with React.js and Tailwind CSS. Features include login system, Admin Dashboard for employee management, and Employee Dashboard for profile handling—all powered by local storage.',
+    image: '/ems.jpg',
+    technologies: ['React.js', 'Tailwind CSS', 'User Interface Design', 'Local Storage'],
+    demoLink: 'https://www.linkedin.com/in/j-eshwar-7b8854289/details/projects/',
   },
   {
     id: 2,
-    title: 'Anonymous Q&A Platform',
-    description: 'An NGL-like application that allows users to receive anonymous questions and messages. Includes features like custom themes, message filtering, and social media integration.',
-    image: '/ngl-app.jpg',
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Supabase'],
-    githubLink: 'https://github.com/username/anonymous-qa',
-    demoLink: 'https://anonymous-qa-demo.vercel.app',
+    title: 'Weather App',
+    description: 'Developed a weather app using React.js that provides real-time updates and forecasts. It features an intuitive UI for easy location searches, displaying temperature, humidity, wind speed. Integrated with a weather API for accurate data and ensured responsiveness for various devices.',
+    image: '/weather.jpg',
+    technologies: ['React.js', 'Weather API', 'User Interface Design', 'Responsive Web Design', 'HTML5'],
+    demoLink: 'https://weather-app-blue-chi-77.vercel.app/',
   },
   {
     id: 3,
-    title: 'Smart Healthcare Solution',
-    description: 'A Smart India Hackathon project that provides an AI-powered healthcare platform for remote diagnosis and patient monitoring. Includes features like symptom analysis and appointment scheduling.',
-    image: '/healthcare-app.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'TensorFlow.js'],
-    githubLink: 'https://github.com/username/smart-healthcare',
+    title: 'Todolist',
+    description: 'A powerful frontend tool for managing tasks, this application offers seamless functionality for creating, updating, and deleting tasks and their descriptions within a personalized to-do list.',
+    image: '/todo.jpg',
+    technologies: ['React.js', 'Next.js', 'Tailwind CSS', 'Responsive Web Design', 'HTML5', 'Git', 'User Interface Design', 'Front-End Development'],
+    demoLink: 'https://todolist-three-indol.vercel.app/',
   },
+
+  // Coming Soon Projects
   {
     id: 4,
-    title: 'E-Learning Platform',
-    description: 'A comprehensive e-learning platform with features like course creation, video lectures, quizzes, and progress tracking. Supports both instructors and students with a clean, intuitive interface.',
-    image: '/elearning-platform.jpg',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Express', 'AWS S3'],
-    githubLink: 'https://github.com/username/elearning-platform',
-    demoLink: 'https://elearning-demo.vercel.app',
+    title: 'IG NGL App',
+    description: 'An anonymous messaging platform inspired by Instagram and NGL, allowing users to receive and respond to anonymous messages with enhanced privacy features and customizable themes.',
+    image: '/profile-photo.jpg',
+    technologies: ['React.js', 'Next.js', 'Firebase', 'Authentication', 'Real-time Database', 'UI/UX Design'],
+    comingSoon: true,
   },
   {
     id: 5,
-    title: 'Task Management App',
-    description: 'A feature-rich task management application with Kanban boards, task prioritization, team collaboration, and deadline reminders. Designed for both personal and team productivity.',
-    image: '/task-app.jpg',
-    technologies: ['Next.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Auth0'],
-    githubLink: 'https://github.com/username/task-management',
-    demoLink: 'https://task-management-demo.vercel.app',
+    title: 'Beach Buddy',
+    description: 'A comprehensive web application that helps users find and connect with beach activities, services, and communities. Features include real-time weather updates, beach ratings, and social networking.',
+    image: '/profile-photo.jpg',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Socket.io'],
+    comingSoon: true,
   },
   {
     id: 6,
-    title: 'Real-time Chat Application',
-    description: 'A modern chat application with real-time messaging, group chats, file sharing, and end-to-end encryption. Features a responsive design for seamless use across devices.',
-    image: '/chat-app.jpg',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Firebase'],
-    githubLink: 'https://github.com/username/chat-app',
-    demoLink: 'https://chat-app-demo.vercel.app',
+    title: 'ConstructHub.ai',
+    description: 'An innovative platform that uses AI to generate floor plans and painting suggestions for construction and interior design projects. Helps users visualize and plan their spaces efficiently.',
+    image: '/constructhub.jpg',
+    technologies: ['React.js', 'AI Integration', 'Node.js', 'Express', 'UI/UX Design'],
+    comingSoon: true,
+  },
+  {
+    id: 7,
+    title: 'Buildwise.ai',
+    description: 'An advanced construction planning platform that finds local designers and provides AI material suggestions. Similar to ConstructHub.ai but with enhanced features for connecting with professionals and optimizing material selection.',
+    image: '/buildwise.jpg',
+    technologies: ['React.js', 'AI Integration', 'Node.js', 'Express', 'MongoDB', 'UI/UX Design'],
+    comingSoon: true,
   },
 ];
 
@@ -78,7 +84,7 @@ export default function Projects() {
         </motion.p>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -93,6 +99,7 @@ export default function Projects() {
                 technologies={project.technologies}
                 githubLink={project.githubLink}
                 demoLink={project.demoLink}
+                comingSoon={project.comingSoon}
               />
             </motion.div>
           ))}

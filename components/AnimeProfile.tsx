@@ -43,7 +43,6 @@ const AnimeProfile = ({ isVisible, delay = 0 }: AnimeProfileProps) => {
         targets: containerRef.current,
         scale: [0, 1],
         opacity: [0, 1],
-        rotate: [-180, 0],
         duration: 1800,
         easing: 'spring(1, 80, 10, 0)'
       })
@@ -108,48 +107,31 @@ const AnimeProfile = ({ isVisible, delay = 0 }: AnimeProfileProps) => {
     };
   }, [isVisible, delay]);
 
-  // 3D flip animation
+  // Subtle glow animation instead of 3D flip
   useEffect(() => {
     if (!imageRef.current || !isVisible) return;
 
-    // Set up 3D flip animation
-    const flipAnimation = anime({
+    // Set up subtle glow animation
+    const glowAnimation = anime({
       targets: imageRef.current,
-      rotateY: [0, 360],
-      scale: [1, 1.05, 1],
-      duration: 2500,
-      delay: 3000, // Delay before first flip
-      easing: 'easeInOutQuad',
-      update: (anim) => {
-        // Add special effects during rotation
-        const progress = anim.progress / 100;
-        const intensity = Math.sin(progress * Math.PI) * 40;
-        const hue = Math.floor(270 + progress * 60); // Purple to pink hue shift
-
-        if (imageRef.current) {
-          // Dynamic shadow effect
-          imageRef.current.style.boxShadow = `0 0 ${30 + intensity}px hsl(${hue}, 80%, 60%)`;
-
-          // Add 3D perspective distortion
-          const distortion = Math.sin(progress * Math.PI * 2) * 5;
-          imageRef.current.style.transform = `rotateY(${progress * 360}deg) perspective(1000px) rotateX(${distortion}deg)`;
-
-          // Change border color
-          imageRef.current.style.borderColor = `hsl(${hue}, 80%, 60%)`;
-        }
-      },
-      complete: () => {
-        // Schedule next flip with random delay
-        setTimeout(() => {
-          if (imageRef.current) {
-            flipAnimation.restart();
-          }
-        }, 6000 + Math.random() * 4000);
-      }
+      boxShadow: [
+        '0 0 20px rgba(138, 43, 226, 0.5)',
+        '0 0 40px rgba(138, 43, 226, 0.7)',
+        '0 0 20px rgba(138, 43, 226, 0.5)',
+      ],
+      borderColor: [
+        'rgba(138, 43, 226, 1)',
+        'rgba(236, 72, 153, 1)',
+        'rgba(138, 43, 226, 1)',
+      ],
+      duration: 3000,
+      easing: 'easeInOutSine',
+      loop: true,
+      direction: 'alternate'
     });
 
     return () => {
-      flipAnimation.pause();
+      glowAnimation.pause();
     };
   }, [isVisible]);
 
@@ -157,39 +139,19 @@ const AnimeProfile = ({ isVisible, delay = 0 }: AnimeProfileProps) => {
     <div
       ref={containerRef}
       className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mb-10"
-      style={{ perspective: '1000px' }}
     >
       <div
         ref={imageRef}
-        className="absolute inset-0 rounded-full overflow-hidden border-[6px] border-purple-500 transform-style-3d shadow-2xl shadow-purple-500/50"
-        style={{ transformStyle: 'preserve-3d' }}
+        className="absolute inset-0 rounded-full overflow-hidden border-[6px] border-purple-500 shadow-2xl shadow-purple-500/50"
       >
-        {/* Front face */}
-        <div className="absolute inset-0 backface-hidden">
-          <Image
-            src="/profile-photo.jpg"
-            alt="J Eshwar"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-pink-500/30 mix-blend-overlay" />
-        </div>
-
-        {/* Back face */}
-        <div
-          className="absolute inset-0 backface-hidden"
-          style={{ transform: 'rotateY(180deg)' }}
-        >
-          <Image
-            src="/profile-photo.jpg"
-            alt="J Eshwar"
-            fill
-            className="object-cover object-center scale-x-[-1]" /* Mirrored */
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-500/40 to-purple-500/40 mix-blend-overlay" />
-        </div>
+        <Image
+          src="/profile-photo.jpg"
+          alt="J Eshwar"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-pink-500/30 mix-blend-overlay" />
       </div>
 
       {/* Rings container */}

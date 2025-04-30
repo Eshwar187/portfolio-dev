@@ -93,44 +93,32 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const contactTemplateId = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID;
+
+    if (!serviceId || !contactTemplateId) {
+      console.error("EmailJS configuration is missing");
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Template parameters
+    const templateParams = {
+      from_name: formData.name,
+      reply_to: formData.email,
+      message: formData.message,
+      to_name: "J Eshwar", // The recipient's name in your EmailJS template
+    };
+
+    // Send contact form email to you
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const contactTemplateId = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID;
-      const autoreplyTemplateId = process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID;
-
-      if (!serviceId || !contactTemplateId || !autoreplyTemplateId) {
-        throw new Error("EmailJS configuration is missing");
-      }
-
-      // Common template parameters
-      const templateParams = {
-        from_name: formData.name,
-        reply_to: formData.email,
-        message: formData.message,
-        to_name: "J Eshwar", // The recipient's name in your EmailJS template
-      };
-
-      // Send contact form email to you
       const contactResult = await emailjs.send(
         serviceId,
         contactTemplateId,
         templateParams
       );
-
       console.log('Contact email sent successfully:', contactResult.text);
-
-      // Send auto-reply email to the user
-      const autoreplyResult = await emailjs.send(
-        serviceId,
-        autoreplyTemplateId,
-        {
-          ...templateParams,
-          to_email: formData.email,
-          to_name: formData.name,
-        }
-      );
-
-      console.log('Auto-reply email sent successfully:', autoreplyResult.text);
 
       // Reset form
       setFormData({ name: '', email: '', message: '' });
@@ -140,12 +128,12 @@ const ContactForm = () => {
       if (formRef.current) {
         formRef.current.reset();
       }
-    } catch (error) {
-      console.error('Error sending email:', error);
+    } catch (contactError) {
+      console.error('Error sending contact email:', contactError);
       setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
     }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -274,7 +262,7 @@ const ContactForm = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <p className="text-green-400">
-                  Message sent successfully! You should receive a confirmation email shortly, and I'll get back to you soon.
+                  Message sent successfully! I'll get back to you soon.
                 </p>
               </div>
             </motion.div>
