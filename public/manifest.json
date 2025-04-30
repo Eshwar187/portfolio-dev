@@ -1,0 +1,16 @@
+{
+  "name": "J Eshwar Portfolio",
+  "short_name": "J Eshwar",
+  "description": "Portfolio of J Eshwar, a Full-Stack MERN Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#8A2BE2",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
