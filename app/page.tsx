@@ -22,10 +22,7 @@ export default function Home() {
 
   // Loading animation sequence
   useEffect(() => {
-    // Phase 0: Initial loading
-    // Phase 1: Zoom to photo
-    // Phase 2: Photo flip
-    // Phase 3: Complete and fade to main page
+    
 
     const timer1 = setTimeout(() => {
       setLoadingPhase(1); // Start zooming to photo after 1 second

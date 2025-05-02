@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import EnhancedHeading from '../../components/EnhancedHeading';
 import anime from 'animejs';
 
-// Timeline data
+
 const timelineItems = [
   {
     id: 0,
