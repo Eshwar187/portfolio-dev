@@ -3,8 +3,12 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --purple-primary: #8a2be2;
-  --pink-primary: #ff00ff;
+  --purple-primary: #6c3ce9;  /* More vibrant purple */
+  --pink-primary: #ff3d87;    /* More coral-pink for better interaction */
+  --purple-hover: #8a4bff;    /* Lighter purple for hover states */
+  --pink-hover: #ff5c9e;      /* Lighter pink for hover states */
+  --accent-teal: #00e5e0;     /* Teal accent for additional interactive elements */
+  --accent-teal-hover: #4dfff9; /* Lighter teal for hover states */
 }
 
 @theme inline {
@@ -44,7 +48,7 @@ body {
   width: 2px;
   height: 2px;
   background: transparent;
-  box-shadow: 1439px 1028px #8a2be2, 1454px 1896px #8a2be2, 1918px 264px #8a2be2, 594px 1986px #8a2be2, 1075px 1308px #8a2be2, 1769px 1526px #8a2be2, 1108px 1231px #8a2be2, 1865px 1329px #8a2be2, 1225px 31px #8a2be2, 1135px 149px #8a2be2, 1320px 551px #8a2be2, 1148px 1837px #8a2be2, 1192px 839px #8a2be2, 1421px 1564px #8a2be2, 1581px 1104px #8a2be2, 1269px 749px #8a2be2, 448px 1251px #8a2be2, 1766px 264px #8a2be2, 1203px 1411px #8a2be2, 1751px 1029px #8a2be2, 1620px 1139px #8a2be2, 1432px 1922px #8a2be2, 1610px 1271px #8a2be2, 1795px 1865px #8a2be2, 1274px 725px #8a2be2;
+  box-shadow: 1439px 1028px var(--purple-primary), 1454px 1896px var(--purple-primary), 1918px 264px var(--purple-primary), 594px 1986px var(--purple-primary), 1075px 1308px var(--purple-primary), 1769px 1526px var(--purple-primary), 1108px 1231px var(--purple-primary), 1865px 1329px var(--purple-primary), 1225px 31px var(--purple-primary), 1135px 149px var(--purple-primary), 1320px 551px var(--purple-primary), 1148px 1837px var(--purple-primary), 1192px 839px var(--purple-primary), 1421px 1564px var(--purple-primary), 1581px 1104px var(--purple-primary), 1269px 749px var(--purple-primary), 448px 1251px var(--purple-primary), 1766px 264px var(--purple-primary), 1203px 1411px var(--purple-primary), 1751px 1029px var(--purple-primary), 1620px 1139px var(--purple-primary), 1432px 1922px var(--purple-primary), 1610px 1271px var(--purple-primary), 1795px 1865px var(--purple-primary), 1274px 725px var(--purple-primary);
   animation: animateStars 100s linear infinite;
 }
 
@@ -52,7 +56,7 @@ body {
   width: 3px;
   height: 3px;
   background: transparent;
-  box-shadow: 387px 1878px #ff00ff, 760px 1564px #ff00ff, 1487px 999px #ff00ff, 948px 1828px #ff00ff, 1588px 1282px #ff00ff, 756px 1725px #ff00ff, 1667px 1435px #ff00ff, 1572px 34px #ff00ff, 1481px 1585px #ff00ff, 508px 1468px #ff00ff, 1067px 1756px #ff00ff, 1381px 1644px #ff00ff, 1246px 1527px #ff00ff, 1619px 1902px #ff00ff, 760px 1564px #ff00ff;
+  box-shadow: 387px 1878px var(--pink-primary), 760px 1564px var(--pink-primary), 1487px 999px var(--pink-primary), 948px 1828px var(--pink-primary), 1588px 1282px var(--pink-primary), 756px 1725px var(--pink-primary), 1667px 1435px var(--pink-primary), 1572px 34px var(--accent-teal), 1481px 1585px var(--accent-teal), 508px 1468px var(--accent-teal), 1067px 1756px var(--pink-primary), 1381px 1644px var(--pink-primary), 1246px 1527px var(--accent-teal), 1619px 1902px var(--pink-primary), 760px 1564px var(--accent-teal);
   animation: animateStars 150s linear infinite;
 }
 

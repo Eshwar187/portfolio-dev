@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/manifest.json',
-  themeColor: '#8A2BE2',
+  themeColor: '#6c3ce9',
   openGraph: {
     title: "J Eshwar | Full-Stack Developer",
     description: "Portfolio of J Eshwar, a Full-Stack MERN Developer specializing in React, Node.js, MongoDB, Express.js, and PostgreSQL",

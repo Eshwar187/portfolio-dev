@@ -162,15 +162,15 @@ const ContactForm = () => {
         <motion.form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/50 shadow-lg shadow-purple-500/20"
+          className="bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-[#6c3ce9]/50 shadow-lg shadow-[#6c3ce9]/20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 relative z-10">Get In Touch</h2>
+          <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87] relative z-10">Get In Touch</h2>
 
           <div className="mb-4">
-            <label htmlFor="name" className="block text-purple-300 mb-2">
+            <label htmlFor="name" className="block text-[#8a4bff] mb-2 font-medium">
               Name
             </label>
             <motion.input
@@ -180,7 +180,7 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-3 bg-purple-900/20 border ${errors.name ? 'border-red-500' : 'border-purple-500/30'} rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all`}
+              className={`w-full px-4 py-3 bg-[#6c3ce9]/10 border ${errors.name ? 'border-red-500' : 'border-[#6c3ce9]/30'} rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c3ce9] focus:border-transparent transition-all duration-300`}
             />
             {errors.name && (
               <motion.p
@@ -194,7 +194,7 @@ const ContactForm = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="email" className="block text-purple-300 mb-2">
+            <label htmlFor="email" className="block text-[#8a4bff] mb-2 font-medium">
               Email
             </label>
             <motion.input
@@ -204,7 +204,7 @@ const ContactForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 bg-purple-900/20 border ${errors.email ? 'border-red-500' : 'border-purple-500/30'} rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all`}
+              className={`w-full px-4 py-3 bg-[#6c3ce9]/10 border ${errors.email ? 'border-red-500' : 'border-[#6c3ce9]/30'} rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c3ce9] focus:border-transparent transition-all duration-300`}
             />
             {errors.email && (
               <motion.p
@@ -218,7 +218,7 @@ const ContactForm = () => {
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block text-purple-300 mb-2">
+            <label htmlFor="message" className="block text-[#8a4bff] mb-2 font-medium">
               Message
             </label>
             <motion.textarea
@@ -228,7 +228,7 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               rows={5}
-              className={`w-full px-4 py-3 bg-purple-900/20 border ${errors.message ? 'border-red-500' : 'border-purple-500/30'} rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all`}
+              className={`w-full px-4 py-3 bg-[#6c3ce9]/10 border ${errors.message ? 'border-red-500' : 'border-[#6c3ce9]/30'} rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c3ce9] focus:border-transparent transition-all duration-300`}
             />
             {errors.message && (
               <motion.p
@@ -246,7 +246,7 @@ const ContactForm = () => {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg text-white font-medium hover:from-purple-700 hover:to-pink-600 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full py-3 bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87] rounded-lg text-white font-medium hover:from-[#8a4bff] hover:to-[#ff5c9e] transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#6c3ce9]/20 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </motion.button>
@@ -255,7 +255,7 @@ const ContactForm = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-6 p-4 bg-green-900/30 border border-green-500/50 rounded-lg"
+              className="mt-6 p-4 bg-green-900/30 border border-green-500/50 rounded-lg shadow-md"
             >
               <div className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -272,7 +272,7 @@ const ContactForm = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg"
+              className="mt-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg shadow-md"
             >
               <div className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

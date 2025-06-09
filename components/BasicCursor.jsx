@@ -15,7 +15,7 @@ const BasicCursor = () => {
   useEffect(() => {
     setMounted(true);
     setHidden(false);
-    
+
     const addEventListeners = () => {
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mousedown', onMouseDown);
@@ -73,48 +73,54 @@ const BasicCursor = () => {
   // Home page - Neon cursor
   if (pathname === '/') {
     cursorStyle = {
-      backgroundColor: clicked ? 'rgba(255, 0, 255, 0.5)' : 'rgba(138, 43, 226, 0.5)',
-      boxShadow: clicked 
-        ? '0 0 20px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.4)' 
-        : '0 0 20px rgba(138, 43, 226, 0.8), 0 0 40px rgba(138, 43, 226, 0.4)',
+      backgroundColor: clicked ? 'rgba(255, 61, 135, 0.6)' : 'rgba(108, 60, 233, 0.6)',
+      boxShadow: clicked
+        ? '0 0 20px rgba(255, 61, 135, 0.8), 0 0 40px rgba(255, 61, 135, 0.4)'
+        : '0 0 20px rgba(108, 60, 233, 0.8), 0 0 40px rgba(108, 60, 233, 0.4)',
       width: linkHovered ? '50px' : '20px',
       height: linkHovered ? '50px' : '20px',
+      transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
     };
-    
+
     ringStyle = {
-      border: `1px solid ${clicked ? 'rgba(255, 0, 255, 0.5)' : 'rgba(138, 43, 226, 0.3)'}`,
+      border: `1px solid ${clicked ? 'rgba(255, 61, 135, 0.5)' : 'rgba(108, 60, 233, 0.3)'}`,
       width: linkHovered ? '80px' : '40px',
       height: linkHovered ? '80px' : '40px',
+      transition: 'border-color 0.3s ease',
     };
-  } 
+  }
   // About page - Cubic cursor
   else if (pathname === '/about') {
     cursorStyle = {
-      backgroundColor: 'rgba(138, 43, 226, 0.5)',
+      backgroundColor: 'rgba(108, 60, 233, 0.6)',
       borderRadius: '10px',
       width: linkHovered ? '40px' : '20px',
       height: linkHovered ? '40px' : '20px',
+      transition: 'background-color 0.3s ease, width 0.3s ease, height 0.3s ease',
     };
-    
+
     ringStyle = {
-      border: `1px solid rgba(138, 43, 226, 0.3)`,
+      border: `1px solid rgba(108, 60, 233, 0.3)`,
       borderRadius: '10px',
       width: linkHovered ? '70px' : '40px',
       height: linkHovered ? '70px' : '40px',
+      transition: 'width 0.3s ease, height 0.3s ease',
     };
   }
   // Projects page - Holographic cursor
   else if (pathname === '/projects') {
     cursorStyle = {
-      backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(138,43,226,0.5) 70%)',
+      backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(108,60,233,0.6) 70%)',
       width: linkHovered ? '40px' : '20px',
       height: linkHovered ? '40px' : '20px',
+      transition: 'width 0.3s ease, height 0.3s ease',
     };
-    
+
     ringStyle = {
-      border: `1px solid rgba(255, 255, 255, 0.3)`,
+      border: `1px solid rgba(0, 229, 224, 0.5)`,
       width: linkHovered ? '70px' : '40px',
       height: linkHovered ? '70px' : '40px',
+      transition: 'width 0.3s ease, height 0.3s ease',
     };
   }
   // LinkedIn page - Professional cursor
@@ -124,7 +130,7 @@ const BasicCursor = () => {
       width: linkHovered ? '40px' : '20px',
       height: linkHovered ? '40px' : '20px',
     };
-    
+
     ringStyle = {
       border: `1px solid rgba(10, 102, 194, 0.3)`,
       width: linkHovered ? '70px' : '40px',
@@ -134,44 +140,50 @@ const BasicCursor = () => {
   // Contact page - Magnetic cursor
   else if (pathname === '/contact') {
     cursorStyle = {
-      backgroundColor: 'rgba(138, 43, 226, 0.5)',
+      backgroundColor: 'rgba(255, 61, 135, 0.6)',
       width: linkHovered ? '50px' : '20px',
       height: linkHovered ? '50px' : '20px',
+      transition: 'background-color 0.3s ease, width 0.3s ease, height 0.3s ease',
     };
-    
+
     ringStyle = {
-      border: `1px solid rgba(138, 43, 226, 0.3)`,
+      border: `1px solid rgba(255, 61, 135, 0.4)`,
       width: linkHovered ? '80px' : '50px',
       height: linkHovered ? '80px' : '50px',
+      transition: 'width 0.3s ease, height 0.3s ease',
     };
   }
   // Blog page - Ink cursor
   else if (pathname === '/blog') {
     cursorStyle = {
       backgroundColor: 'rgba(0, 0, 0, 0.7)',
-      border: `2px solid rgba(138, 43, 226, 0.8)`,
+      border: `2px solid rgba(0, 229, 224, 0.8)`,
       width: linkHovered ? '40px' : '20px',
       height: linkHovered ? '40px' : '20px',
+      transition: 'width 0.3s ease, height 0.3s ease, border-color 0.3s ease',
     };
-    
+
     ringStyle = {
-      border: `1px solid rgba(138, 43, 226, 0.3)`,
+      border: `1px solid rgba(0, 229, 224, 0.4)`,
       width: linkHovered ? '70px' : '40px',
       height: linkHovered ? '70px' : '40px',
+      transition: 'width 0.3s ease, height 0.3s ease',
     };
   }
   // Default cursor
   else {
     cursorStyle = {
-      backgroundColor: 'rgba(138, 43, 226, 0.5)',
+      backgroundColor: 'rgba(108, 60, 233, 0.6)',
       width: linkHovered ? '40px' : '20px',
       height: linkHovered ? '40px' : '20px',
+      transition: 'background-color 0.3s ease, width 0.3s ease, height 0.3s ease',
     };
-    
+
     ringStyle = {
-      border: `1px solid rgba(138, 43, 226, 0.3)`,
+      border: `1px solid rgba(108, 60, 233, 0.3)`,
       width: linkHovered ? '70px' : '40px',
       height: linkHovered ? '70px' : '40px',
+      transition: 'width 0.3s ease, height 0.3s ease',
     };
   }
 
@@ -193,7 +205,7 @@ const BasicCursor = () => {
         }}
         style={cursorStyle}
       />
-      
+
       {/* Cursor ring */}
       <motion.div
         className="fixed top-0 left-0 rounded-full pointer-events-none z-40"
@@ -210,7 +222,7 @@ const BasicCursor = () => {
         }}
         style={ringStyle}
       />
-      
+
       {/* Home page trail effect */}
       {pathname === '/' && (
         <>
@@ -221,8 +233,9 @@ const BasicCursor = () => {
               style={{
                 width: 10 - i * 2,
                 height: 10 - i * 2,
-                backgroundColor: 'rgba(138, 43, 226, 0.5)',
-                opacity: 0.5 - i * 0.1,
+                backgroundColor: 'rgba(108, 60, 233, 0.6)',
+                opacity: 0.6 - i * 0.15,
+                boxShadow: '0 0 10px rgba(108, 60, 233, 0.4)',
               }}
               animate={{
                 x: position.x - (10 - i * 2) / 2,

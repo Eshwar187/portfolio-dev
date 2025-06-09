@@ -237,7 +237,7 @@ export default function About() {
 
         <motion.div
           ref={aboutSectionRef}
-          className="relative max-w-3xl mx-auto bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/50 shadow-lg shadow-purple-500/20 overflow-hidden"
+          className="relative max-w-3xl mx-auto bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-[#6c3ce9]/50 shadow-lg shadow-[#6c3ce9]/20 overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -277,13 +277,13 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               Hello, I&apos;m <motion.span
-                className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87]"
                 animate={{
                   scale: [1, 1.1, 1],
                   color: ["#8B5CF6", "#EC4899", "#8B5CF6"]
                 }}
                 transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-              >J Eshwar</motion.span>, a 20-year-old, IInd year BTech Computer Science and Engineering (AI/ML) student at <motion.span
+              >J Eshwar</motion.span>, a 20-year-old, IIIrd year BTech Computer Science and Engineering (AI/ML) student at <motion.span
                 className="font-semibold text-purple-300"
                 whileHover={{ color: "#EC4899" }}
               >SRM Institute of Science And Technology, Tiruchirappalli</motion.span>, from Tamil Nadu with a relentless passion for technology and innovation. I firmly believe that learning is a lifelong journey, and I am constantly on the path of exploring, experimenting, and enhancing my skills to stay ahead in the fast-evolving tech landscape.
@@ -302,7 +302,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               As a dedicated and enthusiastic learner, I have developed a strong interest in web development as a <motion.span
-                className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87]"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
@@ -535,7 +535,7 @@ export default function About() {
           {/* Frontend Skills */}
           <div className="space-y-6">
             <motion.h3
-              className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500"
+              className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87]"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -566,7 +566,7 @@ export default function About() {
           {/* Backend Skills */}
           <div className="space-y-6">
             <motion.h3
-              className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500"
+              className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87]"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -597,7 +597,7 @@ export default function About() {
           {/* Other Skills */}
           <div className="space-y-6">
             <motion.h3
-              className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500"
+              className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6c3ce9] to-[#ff3d87]"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -733,7 +733,7 @@ function SkillCube({ skill, index, className }: SkillCubeProps) {
               <motion.div
                 className="h-1.5 rounded-full"
                 style={{
-                  background: `linear-gradient(to right, ${skill.color}, #ff00ff)`
+                  background: `linear-gradient(to right, ${skill.color}, #ff3d87)`
                 }}
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.level}%` }}
